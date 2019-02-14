@@ -1,19 +1,22 @@
 import { BaseComponent } from '../../common/components/base/base.component.js';
 
 export class OnePhoneViewComponent extends BaseComponent{
-
+  
   show(phone) {
     this._phone = phone;
     this._render();
     super.show();
   }
 
+  
+
+
   _render() {
     this._element.innerHTML = `
        <img class="phone" src="assets/img/phones/motorola-xoom-with-wi-fi.0.jpg">
 
-    <button>Back</button>
-    <button>Add to basket</button>
+    <button class="phone__back-button">Back</button>
+    <button class="phone__basket-button">Add to basket</button>
 
 
     <h1>Motorola XOOM™ with Wi-Fi</h1>
@@ -37,7 +40,7 @@ export class OnePhoneViewComponent extends BaseComponent{
         <img src="assets/img/phones/motorola-xoom-with-wi-fi.4.jpg">
       </li>
       <li>
-        <img src="img/phones/motorola-xoom-with-wi-fi.5.jpg">
+        <img src="assets/img/phones/motorola-xoom-with-wi-fi.5.jpg">
       </li>
     </ul>
 

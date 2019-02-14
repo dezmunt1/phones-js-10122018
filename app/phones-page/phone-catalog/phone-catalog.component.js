@@ -6,7 +6,7 @@ export class PhonesCatalogComponent extends BaseComponent {
     this.phones = phones;
     this.onPhoneSelect = onPhoneSelect;
     this._render();
-    this._element.addEventListener('click', this._handleClick.bind(this))
+    this._element.addEventListener('click', this._handleClick.bind(this));
   }
 
   _handleClick({ target }) {
@@ -14,7 +14,10 @@ export class PhonesCatalogComponent extends BaseComponent {
     if (!liElement) {
       return;
     }
-    this.onPhoneSelect(liElement.dataset.id);
+    if (target.tagName === 'IMG' || target.matches('.head-link')) {  //переход только по превью или ссылке
+      this.onPhoneSelect(liElement.dataset.id);
+    }
+    
   }
 
   _render() {
@@ -30,7 +33,7 @@ export class PhonesCatalogComponent extends BaseComponent {
               Add
             </a>
           </div>
-          <a href="#!/phones/${phone.id}">${phone.name}</a>
+          <a href="#!/phones/${phone.id}" class='head-link'>${phone.name}</a>
           <p>${phone.snippet}</p>
         </li>`
     }, '')}
